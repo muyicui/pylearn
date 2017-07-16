@@ -3,12 +3,22 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import json
 import pandas
+import sqlite3
 
 #import re
 listurl = 'http://roll.news.sina.com.cn/news/shxw/zqsk/index_{}.shtml'
 comurl = 'http://comment5.news.sina.com.cn/page/info?version=1&format=js&channel=sh&newsid=comos-{}&group=&compress=0&ie=utf-8&oe=utf-8&page=1&page_size=20'
 newstotal = []
 
+def getCommentCount(newsurl):
+    newsid = newsurl.split('/')[-1].rstrip('.shtml').lstrip('doc-i')
+    comment = requests.get(comurl.format(newsid))
+    jd = json.loads(comment.text.strip('var data='))
+    # print(dir(jd['result']))
+    if 'count' in jd['result']:
+        return jd['result']['count']['total']
+    else:
+        return 0
 
 def getNews(newsurl):
         result = {}
@@ -28,18 +38,6 @@ def getNews(newsurl):
         #print(result)
         return result
 
-
-def getCommentCount(newsurl):
-        newsid = newsurl.split('/')[-1].rstrip('.shtml').lstrip('doc-i')
-        comment = requests.get(comurl.format(newsid))
-        jd = json.loads(comment.text.strip('var data='))
-        #print(dir(jd['result']))
-        if 'count' in jd['result']:
-            return jd['result']['count']['total']
-        else:
-            return 0
-
-
 def NewsList(url):
         newsDetails=[]
         res = requests.get(url)
@@ -48,13 +46,19 @@ def NewsList(url):
         contentlist = soup1.select('.list_009 a')
         for link in contentlist:
                 newsDetails.append(getNews(link['href']))
+          #      break
+        #print(newsDetails)
         return newsDetails
 
 for i in range(1,3):
         newsurl = listurl.format(i)
         newsCollected = NewsList(newsurl)
-        newstotal.append(newsCollected)
-
+        newstotal.extend(newsCollected)
+        #print(newstotal)
 
 df = pandas.DataFrame(newstotal)
-print(df.head())
+df.to_excel('news.xlsx')
+
+with sqlite3.connect('news.sqlite') as db:
+        df.to_sql('news',con = db)
+
