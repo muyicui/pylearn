@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6.1 (C:\Users\muyicui\Anaconda\python.exe)" project-jdk-type="Python SDK" />
+  <component name="IpnbSettings">
+    <option name="workingDirectory" value="C:\Users\Muyi\PycharmProjects" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6.1 (C:\Users\Muyi\Anaconda3\python.exe)" project-jdk-type="Python SDK" />
 </project>
