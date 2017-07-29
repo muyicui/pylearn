@@ -1,6 +1,6 @@
 from pandas import read_csv
-
-df = read_csv('D://PDA//4.3//data.csv')
+import muyilib as my
+df = read_csv(my.findpath_da("4.3//data.csv"))
 
 df
 

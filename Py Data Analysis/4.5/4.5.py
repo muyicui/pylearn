@@ -1,8 +1,8 @@
 from pandas import read_csv
 
-df = read_csv(
-    'D:\\PDA\\4.5\\data.csv'
-)
+import muyilib as my
+
+df = read_csv(my.findpath_da("4.5\\data.csv"))
 
 newName = df['name'].str.lstrip()
 

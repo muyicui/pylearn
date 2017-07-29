@@ -1,13 +1,9 @@
 from pandas import read_csv
 
-df = read_csv(
-    'D:\\PDA\\4.4\\data.csv'
-)
+import muyilib as my
 
-df = read_csv(
-    'D:\\PDA\\4.4\\data2.csv',
-    na_values=['a','b']
-)
+df = read_csv(my.findpath_da("4.4\\data.csv"))
+df = read_csv(my.findpath_da("4.4\\data2.csv"),na_values=['a','b'])
 
 
 #找出空值的位置
