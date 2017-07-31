@@ -87,3 +87,4 @@ df.isnull() #取得是否为空的nool DataFrame
 df[df.isnull()] #过滤查找NA所在行或者列
 df.dropna() #去除包含na的数据行
 df.fillna() #填充
+

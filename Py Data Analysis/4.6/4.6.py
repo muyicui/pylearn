@@ -1,8 +1,6 @@
 from pandas import read_csv
-
-df = read_csv(
-    'D:\\PDA\\4.6\\data.csv'
-)
+import muyilib as my
+df = read_csv(my.findpath_da("4.6\\data.csv"))
 
 df['tel'] = df['tel'].astype(str)
 
