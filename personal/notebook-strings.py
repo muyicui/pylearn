@@ -16,4 +16,6 @@ i.split(' ')[0] #使用空格拆分， 返回列表
 
 #字符串切片
 i.str.slice(start,stop) # dataframe 还是string的方法？
-i.
+
+#字符串拆分
+i.str.split(seq,n, expand=False) # expand=True,返回DataFrame, =False返回Series

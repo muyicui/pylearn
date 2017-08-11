@@ -88,3 +88,18 @@ df[df.isnull()] #过滤查找NA所在行或者列
 df.dropna() #去除包含na的数据行
 df.fillna() #填充
 
+#信息抽取
+df[condition] #使用条件过虑信息
+df[df.columns > 10] #条件比较
+df[df.columns.between(10,100)] #范围比较
+df.[pandas.isnull(df.columns)] #空值筛选
+df.[df.title.str.contains('hello',na=False)] #信息包含
+
+#随机抽样
+df.sample(n,frac,replace=False) #n和frac设置一个即可
+
+#记录合并
+concat([df1,df2])
+
+#字段匹配
+merge（df1,df2,left_on, right_on,how) #how:left,right,inner,outer

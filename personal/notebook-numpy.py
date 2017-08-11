@@ -19,3 +19,6 @@ r[r>3]
 
 #矩阵运算（待更新）
 np.dot(r,r.T)
+
+#随机种子
+np.random.seed(seed=n)
