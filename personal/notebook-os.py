@@ -10,5 +10,6 @@ import os
  os.listdir(path) #遍历中文件，返回array
  os.rename(old, new) #修改文件名
 
+#os.path
  os.path.isdir(path)  #目标是否为文件夹，bool
  os.path.join(path,filename) #生成绝对路径
