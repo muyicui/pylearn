@@ -87,3 +87,44 @@ df.isnull() #取得是否为空的nool DataFrame
 df[df.isnull()] #过滤查找NA所在行或者列
 df.dropna() #去除包含na的数据行
 df.fillna() #填充
+
+#信息抽取
+df[condition] #使用条件过虑信息
+df[df.columns > 10] #条件比较
+df[df.columns.between(10,100)] #范围比较
+df.[pandas.isnull(df.columns)] #空值筛选
+df.[df.title.str.contains('hello',na=False)] #信息包含
+
+#随机抽样
+df.sample(n,frac,replace=False) #n和frac设置一个即可
+
+#记录合并
+concat([df1,df2])
+
+#字段匹配
+merge（df1,df2,left_on, right_on,how) #how:left,right,inner,outer
+
+#数值计算
+df.extra_column = #并不咋df中添加数据列
+df['extra_column'] #结果将加入df中
+
+#数据标准化， 将数据0~1标准化
+df.data.min() #最小值
+df.data.max()#最大值
+
+#数据分组
+cut(series,bins,right=True,lables=NULL) #bin为分组列表 min()-1 ~ max()+1 
+
+#时间处理
+pandas.to_datetime(df.datestring,format) #%Y,%m,%d,%H,%M,%S
+df.dt.strftime(format)
+df.datetime.dt.property #property = year, month, day, hour, minute,second
+
+#时间抽取
+df.ix[start:end]
+df.ix[dates]
+
+#虚拟变量 大小关系 如Ｍ，Ｌ，ＸＬ；没有大小意义　如Ｒed Blue
+pandas.Series.map(dict)#有大小关系
+pandas.get_dummies(data,prefix=None,prefix_sep=' ',dummy_na=False,columns=None, drop_first=False )
+
