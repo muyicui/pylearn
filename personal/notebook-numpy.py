@@ -22,3 +22,4 @@ np.dot(r,r.T)
 
 #随机种子
 np.random.seed(seed=n)
+

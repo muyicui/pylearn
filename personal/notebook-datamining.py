@@ -41,3 +41,31 @@ pd.read_table(file, columnname,sep="",encoding)
 pd.read_excel(file,sheetname,columname)
 #导出
 df.to_csv(filePath, sep="",index = True, header = True)
+
+#-------------------------------------------------------------#
+#语料库Corpus， 分析所以内容的集合
+#1. 整理语料库，生成路径列表->读取数据至数组->生成DataFrame
+import codecs
+codecs.open(path,'r','utf-8')
+
+#中文分词，需要分词工具
+#安装jieba， pip install jieba
+
+import jieba
+for w in jieba.cut("我爱吃饺子") #分词案例
+jieba.add_word("不分词") #添加词库
+jieba.load_userdict(path) #添加词库
+
+#文本挖掘 1。 词频统计
+#对分词结果进行统计分析，发现高频词
+#去除停用词，设置stopword
+
+#词云图绘制 Word Cloud 
+from wordcloud iport WordCloud
+import matplotlib.pyplot as plt
+
+wd = WordCloud(font_path,background_color)
+plt.imshow(wd)
+plt.close()
+
+
